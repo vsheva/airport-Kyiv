@@ -1,0 +1,61 @@
+.dates {
+  display: flex;
+  justify-self: central;
+  flex-wrap: wrap;
+  background: #fff;
+  padding: 5px 10px;
+  width: 100%;
+  &__days{
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+
+  &__input {
+    margin-right: 40px;
+
+    border: none;
+    padding: 0;
+
+    &::-webkit-datetime-edit {
+      display: none;
+    }
+
+    &::-webkit-calendar-picker-indicator {
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  &__day {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 10px 55px;
+    border-bottom: 3px solid #b8b9b9;
+    width: 100px;
+
+    height: 40px;
+    color: #b8b9b9;
+    font-weight: 700;
+    text-align: center;
+    cursor: pointer;
+    &-title {
+      font-size: 14px;
+      font-weight: normal;
+      border-bottom: 2px;
+    }
+  }
+  &__title {
+    font-size: 18px;
+    background: #1eb7ee;
+    font-weight: 700;
+    border-radius: 20px 20px 50px 50px;
+    color: #fff;
+    margin: 15px;
+    padding: 15px;
+  }
+}
+.active {
+  color: #1eb7ee;
+  border-color: #1eb7ee;
+}
