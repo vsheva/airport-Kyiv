@@ -5,8 +5,8 @@
   background: #fff;
   padding: 5px 10px;
   width: 100%;
-  &__days{
-    display:flex;
+  &__days {
+    display: flex;
     flex-wrap: wrap;
     flex-direction: row;
   }
@@ -49,7 +49,7 @@
     font-size: 18px;
     background: #1eb7ee;
     font-weight: 700;
-    border-radius: 20px 20px 50px 50px;
+    /*border-radius: 20px 20px 50px 50px;*/
     color: #fff;
     margin: 15px;
     padding: 15px;

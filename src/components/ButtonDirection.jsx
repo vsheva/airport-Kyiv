@@ -1,22 +1,24 @@
 import React from 'react';
-import './buttonDirection.scss'
 
+import { useSelector, useDispatch } from 'react-redux';
 
 const ButtonDirection = () => {
+  return (
+    <div className="items">
+      <button className="items__direction items__direction_active">
+        <i className="fas fa-plane-departure"></i> <a>departures</a>
+      </button>
 
-    return (
-        <div>
-            <button className="button-direction active"><i className="fas fa-plane-departure"></i> departure</button>
-            <button className="button-direction "> <i className='fas fa-plane-arrival'></i> arrival</button>
-        </div>
-
-    );
+      <button className="items__direction ">
+        {' '}
+        <i className="fas fa-plane-arrival"></i>
+        <a> arrivals</a>
+      </button>
+    </div>
+  );
 };
 
-
 export default ButtonDirection;
-
-
 
 /*const ButtonDirection = () => {
 
