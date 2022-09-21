@@ -3,7 +3,7 @@ import Flight from './Flight.jsx';
 import { getFlightData } from './gateway';
 
 const statusObject = {
-  DP: 'Departed at:',
+  DP: 'Departed',
 };
 
 const DepartureList = () => {

@@ -3,7 +3,7 @@ import Flight from './Flight.jsx';
 import { getFlightData } from './gateway';
 
 const statusObject = {
-  LN: 'Landed at:',
+  LN: 'Landed ',
 };
 
 const ArrivalList = () => {
