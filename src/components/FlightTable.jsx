@@ -1,5 +1,5 @@
 import React from 'react';
-import FlightList from './FlightList.jsx';
+import DepartureList from './DepartureList.jsx';
 
 const FlightTable = () => {
   return (

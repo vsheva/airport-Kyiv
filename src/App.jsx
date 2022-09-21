@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Header from './components/header/Header.jsx';
 import Search from './components/Search.jsx';
 import ButtonDirection from './components/ButtonDirection.jsx';
@@ -10,15 +11,15 @@ import { store } from './store.js';
 const App = () => {
   return (
     <Provider store={store}>
-      <Header />
-      <main className="page">
-        <Search />
-
-        <ButtonDirection />
-        <ChooseFlightDate />
-
-        <Flights />
-      </main>
+      <BrowserRouter>
+        <Header />
+        <main className="page">
+          <Search />
+          <ButtonDirection />
+          <ChooseFlightDate />
+          <Flights />
+        </main>
+      </BrowserRouter>
     </Provider>
   );
 };

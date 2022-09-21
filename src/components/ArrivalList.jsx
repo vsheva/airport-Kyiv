@@ -1,19 +1,44 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { setFlights } from '../flightSlice';
+import Flight from './Flight.jsx';
+import { getFlightData } from './gateway';
+
+const statusObject = {
+  LN: 'Arrived at:',
+};
 
 const ArrivalList = () => {
-  const dispatch = useDispatch();
-  const { arrivals } = useSelector(state => state.flights.arrivals);
+  let [arrivals, setArrivals] = React.useState([]);
 
-  const fetchFlightData = async () => {
-    const response = await fetch('https://api.iev.aero/api/flights/11-01-2022');
-    const data = response.json();
-    return data;
-  };
+  React.useEffect(() => {
+    getFlightData().then(data => {
+      const { arrival } = data.body;
 
-  console.log(fetchFlightData());
-  //console.log(dispatch(setFlights(data)))
+      const arrivalList = arrival.map(item => {
+        console.log('item', item);
+        return {
+          id: item.ID,
+          terminal: item.term,
+          time: item.actual,
+          destination: item['irportFromID.name_en'],
+          status: statusObject[item.status],
+          airline: item.airline.en.name,
+          flightCode: item.codeShareData[0].codeShare,
+          logo: item.logo,
+        };
+      });
+
+      setArrivals(arrivalList);
+    });
+  }, []);
+
+  return (
+    <tbody>
+      {arrivals.map(obj => {
+        const key = Math.floor(Math.random() * 10000);
+        return <Flight key={key} {...obj} />;
+      })}
+    </tbody>
+  );
 };
 
 export default ArrivalList;
