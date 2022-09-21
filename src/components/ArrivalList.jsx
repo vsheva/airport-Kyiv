@@ -19,7 +19,7 @@ const ArrivalList = () => {
           id: item.ID,
           terminal: item.term,
           time: item.actual,
-          destination: item['irportFromID.name_en'],
+          destination: item['airportFromID.name_en'],
           status: statusObject[item.status],
           airline: item.airline.en.name,
           flightCode: item.codeShareData[0].codeShare,
