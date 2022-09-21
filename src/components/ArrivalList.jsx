@@ -35,8 +35,8 @@ const ArrivalList = () => {
   return (
     <tbody>
       {arrivals.map(obj => {
-        const key = Math.floor(Math.random() * 10000);
-        return <Flight key={key} {...obj} />;
+        /*const key = Math.floor(Math.random() * 10000);*/
+        return <Flight key={obj.id} {...obj} />;
       })}
     </tbody>
   );
