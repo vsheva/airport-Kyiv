@@ -7,14 +7,15 @@ const statusObject = {
 };
 
 const ArrivalList = () => {
+
   let [arrivals, setArrivals] = React.useState([]);
 
   React.useEffect(() => {
+
     getFlightData().then(data => {
       const { arrival } = data.body;
-
       const arrivalList = arrival.map(item => {
-        console.log('item', item);
+
         return {
           id: item.ID,
           terminal: item.term,

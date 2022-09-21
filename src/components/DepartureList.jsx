@@ -1,6 +1,7 @@
 import React from 'react';
 import Flight from './Flight.jsx';
 import { getFlightData } from './gateway';
+import moment from 'moment';
 
 const statusObject = {
   DP: 'Departed',
@@ -13,8 +14,9 @@ const DepartureList = () => {
     getFlightData().then(data => {
       const { departure } = data.body;
 
+
       const departureList = departure.map(item => {
-        console.log('item', item);
+
         return {
           id: item.ID,
           terminal: item.term,
@@ -34,8 +36,8 @@ const DepartureList = () => {
   return (
     <tbody>
       {departure.map(obj => {
-        const key = Math.floor(Math.random() * 10000);
-        return <Flight key={key} {...obj} />;
+       /* const key = Math.floor(Math.random() * 100000);*/
+        return <Flight key={obj.id} {...obj} />;
       })}
     </tbody>
   );

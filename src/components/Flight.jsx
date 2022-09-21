@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment'
 
 const Flight = ({ id, terminal, time, destination, status, airline, flightCode, logo }) => {
   return (
@@ -6,7 +7,7 @@ const Flight = ({ id, terminal, time, destination, status, airline, flightCode, 
       <td>
         <span className="terminal terminal_A">{terminal}</span>
       </td>
-      <td>{time}</td>
+      <td>{moment(time).format("hh:mm")}</td>
       <td>{destination}</td>
       <td>{status}</td>
       <td className="airline">
