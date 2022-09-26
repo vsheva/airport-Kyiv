@@ -12,12 +12,16 @@
     flex-direction: row;
   }
 
+  &__input:hover{
+    background-color:#1eb7ee;
+  }
+
   &__input {
     margin-right: 40px;
     border: none;
+    outline: none;
+    cursor: pointer ;
     padding: 0;
-
-
 
     &::-webkit-datetime-edit {
       display: none;

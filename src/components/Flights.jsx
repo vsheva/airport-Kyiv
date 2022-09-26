@@ -5,15 +5,18 @@ import ArrivalList from "./ArrivalList.jsx";
 import { Route, Switch } from 'react-router-dom';
 import {useDispatch, useSelector} from "react-redux";
 import {getFlightData} from "../flightSlice.js";
+import moment from "moment";
 
 
 const Flights = () => {
     const dispatch= useDispatch();
 
-  useEffect(()=>{
-    dispatch(getFlightData())
-}, [dispatch])
+    const date = moment().format("DD-MM-YYYY");
 
+    //вызов thunk
+  useEffect(()=>{
+    dispatch(getFlightData(date)) //не задан 1-й date
+}, [dispatch])
 
 
     return (

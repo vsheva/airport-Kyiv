@@ -12,7 +12,7 @@ const ChooseDate = () => {
   const dateHandler=(e)=>{
     const formatedDay= (moment(e.target.value).format("DD-MM-YYYY"));
     setCalendarDay(formatedDay);
-    console.log("formatedDay", formatedDay)
+    console.log("formatedDay", formatedDay) //11-01-2-22
     dispatch(getFlightData(formatedDay))
   }
 

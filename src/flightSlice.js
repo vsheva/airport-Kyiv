@@ -1,13 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+//thunk
+export const getFlightData = (date) => {
 
-export const getFlightData = () => {
-  return async dispatch => {
+  return async (dispatch) => {
     const fetchData = async () => {
-      const response = await fetch(
-          `https://api.iev.aero/api/flights/11-01-2022`,
-      );
-
+      const response = await fetch(`https://api.iev.aero/api/flights/${date}`,);
       const data = await response.json();
       return data;
     };
@@ -19,9 +17,7 @@ export const getFlightData = () => {
 };
 
 
-
 const initialState = {
-/*  status: '',*/
   departures: [],
   arrivals: [],
 };
@@ -33,8 +29,8 @@ const flightSlice = createSlice({
     setFlights: (state, action) => {
       const{arrival}=action.payload.body
       const{departure}=action.payload.body
-      state.arrivals = arrival;
-      state.departures = departure;
+      state.arrivals = action.payload.body.arrival;
+      state.departures = action.payload.body.departure;
     },
   },
 });
