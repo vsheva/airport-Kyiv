@@ -1,5 +1,4 @@
 import React from 'react';
-import DepartureList from './DepartureList.jsx';
 
 const FlightTable = () => {
   return (

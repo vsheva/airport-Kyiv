@@ -8,11 +8,9 @@ import {getFlightData} from "../flightSlice.js";
 
 
 const Flights = () => {
-
     const dispatch= useDispatch();
 
   useEffect(()=>{
-
     dispatch(getFlightData())
 }, [dispatch])
 

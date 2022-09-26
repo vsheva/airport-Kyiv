@@ -1,17 +1,20 @@
 import React from 'react';
 import './chooseDate.scss';
 import moment from 'moment';
-import {getFlightData} from "./gateway";
+
+import {useDispatch, useSelector} from "react-redux";
+import {getFlightData} from "../flightSlice";
 
 const ChooseDate = () => {
-
   const [calendarDay, setCalendarDay]= React.useState('');
+  const dispatch = useDispatch();
 
   const dateHandler=(e)=>{
     const formatedDay= (moment(e.target.value).format("DD-MM-YYYY"));
     setCalendarDay(formatedDay);
+    console.log("formatedDay", formatedDay)
+    dispatch(getFlightData(formatedDay))
   }
-
 
 
   const yesterday = moment().subtract(1, 'd').format('ddd DD/MM');

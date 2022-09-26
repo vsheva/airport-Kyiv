@@ -7,7 +7,6 @@ const statusObject = {
 };
 
 const ArrivalList = () => {
-
   const arrivalsData = useSelector(state => state.flights.arrivals);
 
   const arrivalList = arrivalsData.map(item => {
