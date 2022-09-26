@@ -1,13 +1,27 @@
-const baseUrl = 'https://api.iev.aero/api/flights/11-01-2022';
-
-export const getFlightData = () => {
-  return fetch(`${baseUrl}`).then(response => {
+/*
+export const getFlightData = (day) => {
+  return fetch(`https://api.iev.aero/api/flights/${day}`).then(response => {
     if (response.ok) {
       return response.json();
     }
     throw new Error();
   });
 };
+*/
+
+
+
+
+
+
+
+/*
+fetch(`https://api.iev.aero/api/flights/11-01-2022`).then(response => {
+  if (response.ok) {
+    return response.json();
+  }
+  throw new Error();
+});*/
 
 /*
 const baseUrl='https://api.iev.aero/api/flights/11-01-2022'

@@ -2,15 +2,28 @@ import React, { useEffect } from 'react';
 import FlightTable from './FlightTable.jsx';
 import DepartureList from './DepartureList.jsx';
 import ArrivalList from "./ArrivalList.jsx";
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
+import {useDispatch, useSelector} from "react-redux";
+import {getFlightData} from "../flightSlice.js";
+
 
 const Flights = () => {
-  return (
+
+    const dispatch= useDispatch();
+
+  useEffect(()=>{
+
+    dispatch(getFlightData())
+}, [dispatch])
+
+
+
+    return (
     <table className="table">
       <FlightTable />
         <Switch>
             <Route exact path="/arrivals">
-                <ArrivalList/>
+                <ArrivalList />
             </Route>
             <Route path="/departures">
                 <DepartureList />

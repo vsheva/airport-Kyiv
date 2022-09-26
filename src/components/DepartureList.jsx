@@ -1,22 +1,50 @@
 import React from 'react';
 import Flight from './Flight.jsx';
-import { getFlightData } from './gateway';
-import moment from 'moment';
+import {useSelector} from "react-redux";
 
 const statusObject = {
   DP: 'Departed',
 };
 
 const DepartureList = () => {
-  let [departure, setDeparture] = React.useState([]);
+    const departuresData = useSelector(state => state.flights.departures);
+
+    const departureList = departuresData.map(item => {
+
+        return {
+            id: item.ID,
+            terminal: item.term,
+            time: item.actual,
+            destination: item['airportToID.name_en'],
+            status: statusObject[item.status],
+            airline: item.airline.en.name,
+            flightCode: item.codeShareData[0].codeShare,
+            logo: item.logo,
+        };
+    });
+
+
+
+  return (
+    <tbody>
+      {departureList.map(obj => {
+       /* const key = Math.floor(Math.random() * 100000);*/
+        return <Flight key={obj.id} {...obj} />;
+      })}
+    </tbody>
+  );
+};
+
+export default DepartureList;
+
+
+/** let [departure, setDeparture] = React.useState([]);
 
   React.useEffect(() => {
     getFlightData().then(data => {
       const { departure } = data.body;
 
-
       const departureList = departure.map(item => {
-
         return {
           id: item.ID,
           terminal: item.term,
@@ -31,19 +59,8 @@ const DepartureList = () => {
 
       setDeparture(departureList);
     });
-  }, []);
+  }, []);*/
 
-  return (
-    <tbody>
-      {departure.map(obj => {
-       /* const key = Math.floor(Math.random() * 100000);*/
-        return <Flight key={obj.id} {...obj} />;
-      })}
-    </tbody>
-  );
-};
-
-export default DepartureList;
 
 /*const flightsList = [
     {

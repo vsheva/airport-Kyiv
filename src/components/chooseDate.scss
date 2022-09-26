@@ -3,7 +3,8 @@
   justify-self: central;
   flex-wrap: wrap;
   background: #fff;
-  padding: 5px 10px;
+ /* padding: 5px 10px;*/
+  padding: 20px 10px;
   width: 100%;
   &__days {
     display: flex;
@@ -30,7 +31,7 @@
   &__day {
     display: flex;
     flex-direction: column;
-    padding: 10px 10px 55px;
+    /*padding: 10px 10px 55px;*/
     border-bottom: 3px solid #b8b9b9;
     width: 100px;
 

@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const ButtonDirection = () => {
-  const [departuresSelected, changeSelected] = useState(true);
+  const [selected, changeSelected] = useState(true);
 
-  const buttons = departuresSelected ? (
+  const buttons = selected ? (
     <>
       <Link to="/departures">
         <button className="items__direction  items__direction_active">

@@ -8,13 +8,7 @@ const Header = () => {
             <img
                 className="header-wrapper__logo"
                 src="https://iev.aero/_nuxt/img/logo.c97e286.png" alt="Logo"/></a>
-            <ul className="header-navigation">
-               {/* <li><a className="header-navigation__item" href="/">For passengers</a></li>
-                <li><a className="header-navigation__item" href="/news">IEV Services</a></li>
-                <li><a className="header-navigation__item" href="/news">VIP</a></li>
-                <li><a className="header-navigation__item" href="/news">Corporate</a></li>
-                <li><a className="header-navigation__item" href="/contacts">Press Room</a></li>*/}
-            </ul>
+            <ul className="header-navigation"></ul>
         </header>
 
 
