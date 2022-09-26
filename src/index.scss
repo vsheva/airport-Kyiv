@@ -52,7 +52,8 @@ tr:nth-child(even) {
 .airline {
   display: flex;
   flex-direction: column;
-  text-align: left;
+  align-items: center;
+  text-align: center;
   padding-left: 15px; /**/
 }
 
