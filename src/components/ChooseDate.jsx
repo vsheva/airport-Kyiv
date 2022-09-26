@@ -12,7 +12,7 @@ const ChooseDate = () => {
     setCalendarDay(formatedDay);
   }
 
-  console.log(calendarDay, "calendarDay")
+
 
   const yesterday = moment().subtract(1, 'd').format('ddd DD/MM');
   const today= moment().format('ddd DD/MM');
@@ -21,7 +21,7 @@ const ChooseDate = () => {
 
   return (
     <div className="dates">
-      <input onInput={(e)=>dateHandler(e)} value={calendarDay} className="dates__input" type="date" />
+      <input onInput={(e)=>dateHandler(e)}   value={calendarDay} className="dates__input" type="date" />
       <div className="dates__days">
         <div className="dates__day ">
           <span className="dates__day-title">{yesterday}</span>
