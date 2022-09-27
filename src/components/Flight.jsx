@@ -2,10 +2,12 @@ import React from 'react';
 import moment from 'moment'
 
 const Flight = ({ id, terminal, time, destination, status, airline, flightCode, logo }) => {
+    console.log("trminal", terminal)
+
   return (
     <tr>
       <td>
-        <span className="terminal terminal_A">{terminal}</span>
+        <span className={terminal =="A" ? "terminal terminal_A" : "terminal terminal_D"}>{terminal}</span>
       </td>
       <td>{moment(time).format("hh:mm")}</td>
       <td>{destination}</td>
