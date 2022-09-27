@@ -1,6 +1,6 @@
 # airport_project
 
-### [project link](https://profound-otter-73a6e3.netlify.app)
+### [link](https://profound-otter-73a6e3.netlify.app)
 
 
 ### The tech stack is:
@@ -16,7 +16,7 @@
 - [Redux](https://redux.js.org/)
 - [Redux Toolkit](https://redux-toolkit.js.org/)
 - [redux-thunk](https://github.com/reduxjs/redux-thunk)
-- [JavaScript](https://developer.mozilla.org/ru/docs/Web/JavaScript)
+- [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 - [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
 
 
