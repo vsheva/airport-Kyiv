@@ -1,7 +1,6 @@
 # airport_project
 
-
-### [airport_project link](https://airport-board-gas.netlify.app)
+### [link](https://profound-otter-73a6e3.netlify.app)
 
 
 ### The tech stack is:
