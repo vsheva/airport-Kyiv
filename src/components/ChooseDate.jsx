@@ -32,17 +32,17 @@ const ChooseDate = () => {
 
           <div onClick={()=>dateHandler(yesterday)} className={calendarDay == yesterday.format("DD-MM-YYYY") ? 'dates__day active' : 'dates__day'}>
             <span className="dates__day-title">{yesterday.format('ddd DD/MM')}</span>
-            <p>yesterday</p>
+            <p>YESTERDAY</p>
           </div>
 
           <div onClick={()=>dateHandler(today)} className={calendarDay == today.format("DD-MM-YYYY") ? 'dates__day active' : 'dates__day'}>
             <span className="dates__day-title">{today.format('ddd DD/MM')}</span>
-            <p>today</p>
+            <p>TODAY</p>
           </div>
 
           <div onClick={()=>dateHandler(tomorrow)} className={calendarDay == tomorrow.format("DD-MM-YYYY") ? 'dates__day active' : 'dates__day'}>
             <span className="dates__day-title">{tomorrow.format('ddd DD/MM')}</span>
-            <p>tomorrow</p>
+            <p>TOMORROW</p>
           </div>
 
         </div>
