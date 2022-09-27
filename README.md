@@ -1,6 +1,6 @@
 # airport_project
 
-The current version of application [is here](https://profound-otter-73a6e3.netlify.app)
+The current version of application is located [here](https://profound-otter-73a6e3.netlify.app)
 
 
 ### The tech stack is:
