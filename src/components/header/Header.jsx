@@ -7,7 +7,7 @@ const Header = () => {
         <header className="header-wrapper"><a className="header-wrapper__logo-container" href="/">
             <img
                 className="header-wrapper__logo"
-                src="https://iev.aero/_nuxt/img/logo.c97e286.png" alt="Logo"/></a>
+                src="https://my-airport-board.netlify.app/9ce3efaf0bcc24f0ed82.png" alt="Logo"/></a>
             <ul className="header-navigation"></ul>
         </header>
 
