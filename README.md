@@ -1,6 +1,6 @@
 # airport_project
 
-### [link](https://profound-otter-73a6e3.netlify.app)
+### [project link](https://profound-otter-73a6e3.netlify.app)
 
 
 ### The tech stack is:
