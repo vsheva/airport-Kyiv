@@ -27,8 +27,6 @@ const flightSlice = createSlice({
   initialState,
   reducers: {
     setFlights: (state, action) => {
-      const{arrival}=action.payload.body
-      const{departure}=action.payload.body
       state.arrivals = action.payload.body.arrival;
       state.departures = action.payload.body.departure;
     },

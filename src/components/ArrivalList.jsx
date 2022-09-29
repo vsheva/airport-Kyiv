@@ -1,9 +1,10 @@
 import React from 'react';
 import Flight from './Flight.jsx';
 import {useSelector} from "react-redux";
+import moment from "moment";
 
 const statusObject = {
-  LN: 'Landed ',
+  LN: 'Landed',
 };
 
 const ArrivalList = () => {
@@ -16,7 +17,7 @@ const ArrivalList = () => {
       terminal: item.term,
       time: item.actual,
       destination: item['airportFromID.name_en'],
-      status: statusObject[item.status],
+      status: item.status ==="DP" || item.status ==="LN" ? statusObject[item.status] : item.status ,
       airline: item.airline.en.name,
       flightCode: item.codeShareData[0].codeShare,
       logo: item.logo,
@@ -27,7 +28,6 @@ const ArrivalList = () => {
   return (
     <tbody>
       {arrivalList.map(obj => {
-        /*const key = Math.floor(Math.random() * 10000);*/
         return <Flight key={obj.id} {...obj} />;
       })}
     </tbody>

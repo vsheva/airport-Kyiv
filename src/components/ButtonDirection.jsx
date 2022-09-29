@@ -1,19 +1,25 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+import moment from "moment";
 
 const ButtonDirection = () => {
+  const location= useLocation();
+   const queryString=location.search;
+    console.log("queryString", queryString)
+
   const [selected, changeSelected] = useState(true);
 
-  const buttons = selected ? (
+    const buttons = selected ? (
     <>
-      <Link to="/departures">
+      <Link to={`/departures${queryString}`}>
         <button className="items__direction  items__direction_active">
           <i className="fas fa-plane-departure "></i>
           departures
         </button>
       </Link>
 
-      <Link to="/arrivals">
+      <Link to={`/arrivals${queryString}`}>
         <button className="items__direction" onClick={() => changeSelected(false)}>
           <i className="fas fa-plane-arrival"></i>
           arrivals
@@ -22,14 +28,14 @@ const ButtonDirection = () => {
     </>
   ) : (
     <>
-      <Link to="/departures">
+      <Link to={`/departures${queryString}`}>
         <button className="items__direction" onClick={() => changeSelected(true)}>
           <i className="fas fa-plane-departure "></i>
           departures
         </button>
       </Link>
 
-      <Link to="/arrivals">
+      <Link to={`/arrivals${queryString}`}>
         <button className="items__direction  items__direction_active">
           <i className="fas fa-plane-arrival"></i>
           arrivals

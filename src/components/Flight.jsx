@@ -8,7 +8,7 @@ const Flight = ({ id, terminal, time, destination, status, airline, flightCode, 
       <td>
         <span className={ `terminal terminal_${terminal.toUpperCase()}`}>{terminal}</span>
       </td>
-      <td>{moment(time).format("hh:mm")}</td>
+      <td>{moment(time).format("kk:mm")}</td>
       <td>{destination}</td>
       <td>{status}</td>
       <td className="airline">
