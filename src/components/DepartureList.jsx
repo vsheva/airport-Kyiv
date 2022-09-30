@@ -7,10 +7,22 @@ const statusObject = {
   DP: 'Departed',
 };
 
-const DepartureList = () => {
+const DepartureList = ({searchValue}) => {
+
+    console.log("searchValue", searchValue)
+
     const departuresData = useSelector(state => state.flights.departures);
 
-    const departureList = departuresData.map(item => {
+    console.log("departuresData", departuresData)
+
+
+    const flightList= departuresData.filter(item=>{
+
+       if ( item.codeShareData[0].codeShare.toLowerCase().includes(searchValue.toLowerCase())){
+         return true;
+        }
+        return false
+    }).map(item => {
 
         return {
             id: item.ID,
@@ -24,6 +36,8 @@ const DepartureList = () => {
             logo: item.logo,
         };
     });
+
+    const departureList = flightList
 
 
 

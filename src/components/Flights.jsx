@@ -9,7 +9,9 @@ import moment from "moment";
 import qs from "qs";
 
 
-const Flights = () => {
+const Flights = ({searchValue}) => {
+
+
     const dispatch= useDispatch();
 
     const {search} =window.location;
@@ -32,11 +34,11 @@ const Flights = () => {
             </Route>
 
             <Route path="/departures">
-                <DepartureList />
+                <DepartureList searchValue={searchValue} />
             </Route>
 
                     <Route path="/arrivals">
-                        <ArrivalList />
+                        <ArrivalList searchValue={searchValue}/>
                     </Route>
         </Switch>
     </table>

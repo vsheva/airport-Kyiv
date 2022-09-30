@@ -7,6 +7,8 @@
   margin-bottom: 40px;
 
 
+
+
   &__title {
     font-size: 70px;
     font-weight: 300;
@@ -28,6 +30,8 @@
   display: flex;
   width: 750px;
 
+  position:relative;/**/
+
   &__manifier {
     background-color: white;
     font-size: 35px;
@@ -45,6 +49,8 @@
     outline: none;
 
     padding: 0 10px 0 50px;
+
+
   }
   &__button {
     padding: 0;
@@ -69,5 +75,22 @@
       border-radius: 0 40px 0 0;
       /*font-size: 30px;*/
     }
+  }
+}
+
+
+.clearIcon {
+  width: 20px;
+  height: 20px;
+  opacity: 0.3;
+
+  right: 212px;
+  top: 25px;
+  cursor: pointer;
+
+  position: absolute;
+
+  &:hover {
+    opacity: 0.8;
   }
 }

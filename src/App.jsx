@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, {useEffect, useState} from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Header from './components/header/Header.jsx';
 import Search from './components/Search.jsx';
@@ -15,17 +15,18 @@ import {getFlightData} from "./flightSlice.js";
 
 
 const App = () => {
-
+  const [searchValue, setSearchValue] = useState('');
+  console.log("searchValue", searchValue)
 
   return (
     <Provider store={store}>
       <BrowserRouter>
         <Header />
         <main className="page">
-          <Search />
+          <Search searchValue={searchValue} setSearchValue={setSearchValue} />
           <ButtonDirection />
           <ChooseDate />
-          <Flights/>
+          <Flights  searchValue={searchValue}/>
         </main>
       </BrowserRouter>
     </Provider>
