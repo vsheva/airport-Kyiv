@@ -1,31 +1,38 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Flight from './Flight.jsx';
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import moment from "moment";
+import {getFlightData} from "../flightSlice";
+import qs from "qs";
 
 const statusObject = {
   LN: 'Landed',
 };
 
-const ArrivalList = ({searchValue}) => {
+const ArrivalList = () => {;
+    const dispatch= useDispatch();
+    const {search}= window.location
+    const {date, filter} = qs.parse(search.substring(1)) ;
+    const parsedValue= filter || "";
 
+    useEffect(() => {
+        dispatch(getFlightData(date || moment().format("DD-MM-YYYY")))//не задан 1-й date
+    }, [date, parsedValue]);
+    
 
-  const arrivalsData = useSelector(state => state.flights.arrivals);
+    const arrivalsData = useSelector(state => state.flights.arrivals);
 
-  const arrivalList = arrivalsData.filter(item=>{
+    const filteredList = filter ? arrivalsData.filter(item => item.codeShareData[0].codeShare.toLowerCase().includes(filter.toLowerCase())) : arrivalsData;
 
-    if ( item.codeShareData[0].codeShare.toLowerCase().includes(searchValue.toLowerCase())){
-      return true;
-    }
-    return false
-  }).map(item => {
+  const arrivalList = filteredList.map(item => {
 
     return {
       id: item.ID,
       terminal: item.term,
       time: item.actual,
       destination: item['airportFromID.name_en'],
-      status: item.status ==="DP" || item.status ==="LN" ? statusObject[item.status] : item.status ,
+      //status: item.status ==="DP" || item.status ==="LN" ? statusObject[item.status] : item.status ,
+        status: item.status,
       airline: item.airline.en.name,
       flightCode: item.codeShareData[0].codeShare,
       logo: item.logo,
@@ -43,6 +50,28 @@ const ArrivalList = ({searchValue}) => {
 };
 
 export default ArrivalList;
+
+
+/*
+.filter(item=>{
+
+    if ( item.codeShareData[0].codeShare.toLowerCase().includes(searchValue.toLowerCase())){
+        return true;
+    }
+    return false
+})
+*/
+
+
+/*
+.filter(item=>{
+
+    if ( item.codeShareData[0].codeShare.toLowerCase().includes(parsedValue.toLowerCase())){
+        return true;
+    }
+    return false
+})
+*/
 
 
 /**

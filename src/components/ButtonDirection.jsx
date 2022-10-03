@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
-import moment from "moment";
+import moment from 'moment';
 
 const ButtonDirection = () => {
-  const location= useLocation();
-   const queryString=location.search;
-    console.log("queryString", queryString)
+  const location = useLocation();
+  const queryString = location.search || '';
 
   const [selected, changeSelected] = useState(true);
 
-    const buttons = selected ? (
+  const buttons = selected ? (
     <>
       <Link to={`/departures${queryString}`}>
         <button className="items__direction  items__direction_active">

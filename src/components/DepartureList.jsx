@@ -1,45 +1,48 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Flight from './Flight.jsx';
-import {useSelector} from "react-redux";
-import moment from "moment";
+import { useDispatch, useSelector } from 'react-redux';
+import moment from 'moment';
+import { getFlightData } from '../flightSlice';
+import qs from 'qs';
+
+import { useHistory, useLocation } from 'react-router-dom';
 
 const statusObject = {
   DP: 'Departed',
 };
 
-const DepartureList = ({searchValue}) => {
+const DepartureList = () => {
+  const dispatch = useDispatch();
+  const location = useLocation();
+  const { date, filter } = qs.parse(location.search.substring(1));
+  const parsedValue = filter || '';
+  const navigate = useHistory();
 
-    console.log("searchValue", searchValue)
+  useEffect(() => {
+    dispatch(getFlightData(date || moment().format('DD-MM-YYYY'))); //не задан 1-й date
+  }, [date, parsedValue, location.search, navigate.location.search]);
 
-    const departuresData = useSelector(state => state.flights.departures);
+  const departuresData = useSelector(state => state.flights.departures);
 
-    console.log("departuresData", departuresData)
+  const filteredList = filter
+    ? departuresData.filter(item =>
+        item.codeShareData[0].codeShare.toLowerCase().includes(filter.toLowerCase()),
+      )
+    : departuresData;
 
-
-    const flightList= departuresData.filter(item=>{
-
-       if ( item.codeShareData[0].codeShare.toLowerCase().includes(searchValue.toLowerCase())){
-         return true;
-        }
-        return false
-    }).map(item => {
-
-        return {
-            id: item.ID,
-            terminal: item.term,
-            time: item.actual,
-            destination: item['airportToID.name_en'],
-            //status: statusObject[item.status] ?  item.status : item.status ,
-            status: item.status ==="DP" || item.status ==="LN" ? statusObject[item.status] : item.status ,
-            airline: item.airline.en.name,
-            flightCode: item.codeShareData[0].codeShare,
-            logo: item.logo,
-        };
-    });
-
-    const departureList = flightList
-
-
+  const departureList = filteredList.map(item => {
+    return {
+      id: item.ID,
+      terminal: item.term,
+      time: item.actual,
+      destination: item['airportToID.name_en'],
+      //status: item.status === 'DP' || item.status === 'LN' ? statusObject[item.status] : item.status,
+        status: item.status,
+      airline: item.airline.en.name,
+      flightCode: item.codeShareData[0].codeShare,
+      logo: item.logo,
+    };
+  });
 
   return (
     <tbody>
@@ -52,6 +55,43 @@ const DepartureList = ({searchValue}) => {
 
 export default DepartureList;
 
+/*
+const flightList= departuresData.filter(item=>{
+
+    if ( item.codeShareData[0].codeShare.toLowerCase().includes(searchValue.toLowerCase())){
+        return true;
+    }
+    return false
+}).map(item => {
+*/
+
+/*
+const dispatch= useDispatch();
+const navigate = useHistory();
+const searchParams = new URLSearchParams(navigate.location.search);
+
+console.log("navigate", navigate);
+
+const {search}= window.location
+const location = useLocation();
+console.log("search", search)
+const {date, value} = qs.parse(search.substring(1)) ;
+const parsedValue= value || "";
+
+
+
+useEffect(() => {
+    console.log("здесь мы")
+    dispatch(getFlightData(searchParams.get('date') || moment().format("DD-MM-YYYY")))//не задан 1-й date
+}, [date, parsedValue, navigate.location, location]);
+
+
+
+const departuresData = useSelector(state => state.flights.departures);
+
+const filteredList = searchParams.get('value') ? departuresData.filter((item)=>item.codeShareData[0].codeShare.toLowerCase().includes(searchParams.get('value').toLowerCase())) : departuresData;
+
+*/
 
 /** let [departure, setDeparture] = React.useState([]);
 
@@ -75,7 +115,6 @@ export default DepartureList;
       setDeparture(departureList);
     });
   }, []);*/
-
 
 /*const flightsList = [
     {

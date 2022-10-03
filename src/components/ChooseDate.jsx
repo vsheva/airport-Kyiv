@@ -31,78 +31,83 @@ const isSortingAscending= queryParams.get("sort") ==='asc';  //по ключу
 import React from 'react';
 import './chooseDate.scss';
 import moment from 'moment';
-import qs from "qs";
+import qs from 'qs';
 
-import {useDispatch, useSelector} from "react-redux";
-import {getFlightData} from "../flightSlice";
-import {useHistory} from "react-router-dom";
-
-
+import { useDispatch, useSelector } from 'react-redux';
+import { getFlightData } from '../flightSlice';
+import { useHistory } from 'react-router-dom';
 
 const ChooseDate = () => {
-  const [calendarDay, setCalendarDay]= React.useState('');
+  const [calendarDay, setCalendarDay] = React.useState('');
   const dispatch = useDispatch();
   const navigate = useHistory();
 
   //3
   //const location =window.location;  location.search.substring(1)
-  const {search} =window.location;
+  const { search } = window.location;
   //4
-  const params= qs.parse(search.substring(1));
+  const params = qs.parse(search.substring(1));
   //console.log("params", params)
 
+  const yesterday = moment().subtract(1, 'd');
+  const today = moment();
+  const tomorrow = moment().add(1, 'd');
 
-  const yesterday = moment().subtract(1, 'd')
-  const today= moment()
-  const tomorrow=moment().add(1, 'd')
-
-  const dateHandler=(data)=>{
-    const formatedDay= (moment(data).format("DD-MM-YYYY"));
+  const dateHandler = data => {
+    const formatedDay = moment(data).format('DD-MM-YYYY'); //11-01-2-22
     setCalendarDay(formatedDay);
-    //console.log("formatedDay", formatedDay) //11-01-2-22
 
     //1
     const queryString = qs.stringify({
       date: formatedDay,
-    })
+    });
     //2
-    //console.log("queryString", queryString)
-    navigate.push(`?${queryString}`)
-
-    dispatch(getFlightData(formatedDay))
-  }
-
+    navigate.push(`?${queryString}`);
+    dispatch(getFlightData(formatedDay));
+  };
 
   return (
-      <div className="dates">
-        <input onInput={(e)=>dateHandler(e.target.value)}   value={calendarDay} className="dates__input" type="date" />
-        <div className="dates__days">
+    <div className="dates">
+      <input
+        onInput={e => dateHandler(e.target.value)}
+        value={calendarDay}
+        className="dates__input"
+        type="date"
+      />
+      <div className="dates__days">
+        <div
+          onClick={() => dateHandler(yesterday)}
+          className={
+            calendarDay == yesterday.format('DD-MM-YYYY') ? 'dates__day active' : 'dates__day'
+          }
+        >
+          <span className="dates__day-title">{yesterday.format('ddd DD/MM')}</span>
+          <p>YESTERDAY</p>
+        </div>
 
-          <div onClick={()=>dateHandler(yesterday)} className={calendarDay == yesterday.format("DD-MM-YYYY") ? 'dates__day active' : 'dates__day'}>
-            <span className="dates__day-title">{yesterday.format('ddd DD/MM')}</span>
-            <p>YESTERDAY</p>
-          </div>
+        <div
+          onClick={() => dateHandler(today)}
+          className={calendarDay == today.format('DD-MM-YYYY') ? 'dates__day active' : 'dates__day'}
+        >
+          <span className="dates__day-title">{today.format('ddd DD/MM')}</span>
+          <p>TODAY</p>
+        </div>
 
-          <div onClick={()=>dateHandler(today)} className={calendarDay == today.format("DD-MM-YYYY") ? 'dates__day active' : 'dates__day'}>
-            <span className="dates__day-title">{today.format('ddd DD/MM')}</span>
-            <p>TODAY</p>
-          </div>
-
-          <div onClick={()=>dateHandler(tomorrow)} className={calendarDay == tomorrow.format("DD-MM-YYYY") ? 'dates__day active' : 'dates__day'}>
-            <span className="dates__day-title">{tomorrow.format('ddd DD/MM')}</span>
-            <p>TOMORROW</p>
-          </div>
-
+        <div
+          onClick={() => dateHandler(tomorrow)}
+          className={
+            calendarDay == tomorrow.format('DD-MM-YYYY') ? 'dates__day active' : 'dates__day'
+          }
+        >
+          <span className="dates__day-title">{tomorrow.format('ddd DD/MM')}</span>
+          <p>TOMORROW</p>
         </div>
       </div>
+    </div>
   );
 };
 
 export default ChooseDate;
-
-
-
-
 
 /**
 import React from 'react';
@@ -161,7 +166,6 @@ export default ChooseDate;
 
 
 */
-
 
 /*
 import React from 'react';
@@ -224,11 +228,3 @@ const ChooseDate = () => {
 
 export default ChooseDate;
 */
-
-
-
-
-
-
-
-
