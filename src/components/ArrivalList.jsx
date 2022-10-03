@@ -5,9 +5,9 @@ import moment from "moment";
 import {getFlightData} from "../flightSlice";
 import qs from "qs";
 
-/*const statusObject = {
-  LN: 'Landed',
-};*/
+const statusObject = {
+  LN: 'Landed at ',
+};
 
 const ArrivalList = () => {;
     const dispatch= useDispatch();
@@ -29,10 +29,10 @@ const ArrivalList = () => {;
     return {
       id: item.ID,
       terminal: item.term,
-      time: item.actual,
+      time: item.timeLandCalc,
       destination: item['airportFromID.name_en'],
-      //status: item.status ==="DP" || item.status ==="LN" ? statusObject[item.status] : item.status ,
-        status: item.status,
+      status: item.status ==="DP" || item.status ==="LN" ? statusObject[item.status] +moment(item.timeLandFact).format('kk:mm') : item.status ,
+       // status: item.status,
       airline: item.airline.en.name,
       flightCode: item.codeShareData[0].codeShare,
       logo: item.logo,

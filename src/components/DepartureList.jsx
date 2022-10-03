@@ -7,9 +7,9 @@ import qs from 'qs';
 
 import { useHistory, useLocation } from 'react-router-dom';
 
-/*const statusObject = {
-  DP: 'Departed',
-};*/
+const statusObject = {
+  DP: 'Departed at ',
+};
 
 const DepartureList = () => {
   const dispatch = useDispatch();
@@ -34,10 +34,10 @@ const DepartureList = () => {
     return {
       id: item.ID,
       terminal: item.term,
-      time: item.actual,
+      time: item.timeDepShedule,
       destination: item['airportToID.name_en'],
-      //status: item.status === 'DP' || item.status === 'LN' ? statusObject[item.status] : item.status,
-        status: item.status,
+      status: item.status === 'DP' || item.status === 'LN' ? statusObject[item.status] +moment(item.timeTakeofFact).format('kk:mm')  : item.status,
+       // status: item.status,
       airline: item.airline.en.name,
       flightCode: item.codeShareData[0].codeShare,
       logo: item.logo,
