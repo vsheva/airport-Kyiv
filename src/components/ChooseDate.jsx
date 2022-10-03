@@ -1,33 +1,3 @@
-//http://localhost:8080/departures?date=28-01-2022&value=7B250
-
-/*
-router v6
-1.cоздали  JS- object через qs.stringify()
-2.вшили его в URL строку через useNavigate/useHistory
-3.стянуть его из URL через useLocation() или useSearchParams()
-4. спарсить(прочитать) и translate in JS-object: const params= qs.parse(window.location.search.substring(1)
-
-                                 -qs.parse(), URLSearchParams(), useSearchParams(), window.location.search.substring(1), useQueryParams() const {search}=useLocation()
-
-                                   const {search} = window.location
-                                   const {search} = useLocation()
-
-5. обьект разпарсенный передать в редакс
-
-router v5
-в обработчике
-A- обновить параметры в url
-1.
-2. useHistory - менять URL - history.push("/quotes?sort=" + "asc"), RERENDER !!!
-             history.push("/quotes?sort=" +(isSortingAscending ? "asc" : "desc"))
-3. useLocation (has pathname and search)
-4. translate in JS-object: URLSearchParams(), qs.parse(), useSearchParams()
-
-const queryParams= new URLSearchParams(location.search)
-const isSortingAscending= queryParams.get("sort") ==='asc';  //по ключу
-.. на кнопку
-*/
-
 import React from 'react';
 import './chooseDate.scss';
 import moment from 'moment';
@@ -108,6 +78,39 @@ const ChooseDate = () => {
 };
 
 export default ChooseDate;
+
+//http://localhost:8080/departures?date=28-01-2022&value=7B250
+
+/*
+router v6
+1.cоздали  JS- object через qs.stringify()
+2.вшили его в URL строку через useNavigate/useHistory
+3.стянуть его из URL через useLocation() или useSearchParams()
+4. спарсить(прочитать) и translate in JS-object: const params= qs.parse(window.location.search.substring(1)
+
+                                 -qs.parse(), URLSearchParams(), useSearchParams(), window.location.search.substring(1), useQueryParams() const {search}=useLocation()
+
+                                   const {search} = window.location
+                                   const {search} = useLocation()
+
+5. обьект разпарсенный передать в редакс
+
+router v5
+в обработчике
+A- обновить параметры в url
+1.
+2. useHistory - менять URL - history.push("/quotes?sort=" + "asc"), RERENDER !!!
+             history.push("/quotes?sort=" +(isSortingAscending ? "asc" : "desc"))
+3. useLocation (has pathname and search)
+4. translate in JS-object: URLSearchParams(), qs.parse(), useSearchParams()
+
+const queryParams= new URLSearchParams(location.search)
+const isSortingAscending= queryParams.get("sort") ==='asc';  //по ключу
+.. на кнопку
+*/
+
+
+
 
 /**
 import React from 'react';

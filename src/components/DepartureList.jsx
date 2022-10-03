@@ -7,9 +7,9 @@ import qs from 'qs';
 
 import { useHistory, useLocation } from 'react-router-dom';
 
-const statusObject = {
+/*const statusObject = {
   DP: 'Departed',
-};
+};*/
 
 const DepartureList = () => {
   const dispatch = useDispatch();

@@ -5,9 +5,9 @@ import moment from "moment";
 import {getFlightData} from "../flightSlice";
 import qs from "qs";
 
-const statusObject = {
+/*const statusObject = {
   LN: 'Landed',
-};
+};*/
 
 const ArrivalList = () => {;
     const dispatch= useDispatch();

@@ -3,10 +3,6 @@ import FlightTable from './FlightTable.jsx';
 import DepartureList from './DepartureList.jsx';
 import ArrivalList from './ArrivalList.jsx';
 import { Route, Switch, Redirect } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { getFlightData } from '../flightSlice.js';
-import moment from 'moment';
-import qs from 'qs';
 
 const Flights = () => {
   return (
@@ -30,6 +26,11 @@ const Flights = () => {
 };
 
 export default Flights;
+
+/*import { useDispatch, useSelector } from 'react-redux';
+import { getFlightData } from '../flightSlice.js';
+import moment from 'moment';
+import qs from 'qs';*/
 
 /*
   const dispatch= useDispatch();
