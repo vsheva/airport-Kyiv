@@ -31,7 +31,7 @@ const Search = () => {
         <input
           placeholder=" flight #"
           type="text"
-          onChange={e => setSearchValue(e.target.value)}
+          onChange={(e) => setSearchValue(e.target.value)}
           name="flight-number"
           className="search-block__input"
           value={searchValue}

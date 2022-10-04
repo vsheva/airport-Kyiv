@@ -22,12 +22,9 @@ const ArrivalList = () => {;
 
     const arrivalsData = useSelector(state => state.flights.arrivals);
 
-    console.log("arrivalsData", arrivalsData)
-
     const filteredList = filter ? arrivalsData.filter(item => item.codeShareData[0].codeShare.toLowerCase().includes(filter.toLowerCase())) : arrivalsData;
 
   const arrivalList = filteredList.map(item => {
-
     return {
       id: item.ID,
       terminal: item.term,

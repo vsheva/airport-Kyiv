@@ -11,9 +11,13 @@ const Flight = ({ id, terminal, time, destination, status, airline, flightCode, 
       <td>{destination}</td>
       <td>{status}</td>
       <td className="airline">
-        {airline}
+          <div className="airline__logo">
         <img className="item-logo" src={`https://api.iev.aero${logo}`} alt="logo" />
-      </td>
+          </div>
+          <div className="airline__name">
+              {airline}
+          </div>
+          </td>
       <td className="td-hiden">{flightCode}</td>
     </tr>
   );

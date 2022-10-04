@@ -19,7 +19,7 @@ const DepartureList = () => {
   const navigate = useHistory();
 
   useEffect(() => {
-    dispatch(getFlightData(date || moment().format('DD-MM-YYYY'))); //не задан 1-й date
+    dispatch(getFlightData(date || moment().format('DD-MM-YYYY')));
   }, [date, parsedValue, location.search, navigate.location.search]);
 
   const departuresData = useSelector(state => state.flights.departures);
