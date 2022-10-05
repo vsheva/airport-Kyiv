@@ -8,7 +8,7 @@ The current version of application is located [here](https://airport-kiev.netlif
 - [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
 - [Flexbox](https://en.wikipedia.org/wiki/CSS_Flexible_Box_Layout)
 - [Sass (Scss)](https://sass-lang.com/)
-- [BEM methodology](https://en.bem.info/methodology/)
+- [BEM](https://en.bem.info/methodology/)
 - [React JavaScript library](https://reactjs.org/)
 - [React Hooks](https://reactjs.org/docs/hooks-faq.html#gatsby-focus-wrapper)
 - [React-router](https://reactrouter.com/web/guides/quick-start)
