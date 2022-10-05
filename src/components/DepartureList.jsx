@@ -6,6 +6,7 @@ import { getFlightData } from '../flightSlice';
 import qs from 'qs';
 
 import { useHistory, useLocation } from 'react-router-dom';
+import NoFlights from "./NoFlights.jsx";
 
 const statusObject = {
   DP: 'Departed at ',
@@ -45,25 +46,16 @@ const DepartureList = () => {
   });
 
   return (
-    <tbody>
-      {departureList.map(obj => {
-        return <Flight key={obj.id} {...obj} />;
-      })}
-    </tbody>
+     <>{departureList.length === 0 ? <NoFlights/> :
+         departureList.map(obj => {
+             return <Flight key={obj.id} {...obj} />;
+         })
+     }</>
   );
 };
 
 export default DepartureList;
 
-/*
-const flightList= departuresData.filter(item=>{
-
-    if ( item.codeShareData[0].codeShare.toLowerCase().includes(searchValue.toLowerCase())){
-        return true;
-    }
-    return false
-}).map(item => {
-*/
 
 /*
 const dispatch= useDispatch();
@@ -93,28 +85,6 @@ const filteredList = searchParams.get('value') ? departuresData.filter((item)=>i
 
 */
 
-/** let [departure, setDeparture] = React.useState([]);
-
-  React.useEffect(() => {
-    getFlightData().then(data => {
-      const { departure } = data.body;
-
-      const departureList = departure.map(item => {
-        return {
-          id: item.ID,
-          terminal: item.term,
-          time: item.actual,
-          destination: item['airportToID.name_en'],
-          status: statusObject[item.status],
-          airline: item.airline.en.name,
-          flightCode: item.codeShareData[0].codeShare,
-          logo: item.logo,
-        };
-      });
-
-      setDeparture(departureList);
-    });
-  }, []);*/
 
 /*const flightsList = [
     {

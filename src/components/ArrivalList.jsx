@@ -4,6 +4,7 @@ import {useDispatch, useSelector} from "react-redux";
 import moment from "moment";
 import {getFlightData} from "../flightSlice";
 import qs from "qs";
+import NoFlights from "./NoFlights.jsx";
 
 const statusObject = {
   LN: 'Landed at ',
@@ -40,11 +41,11 @@ const ArrivalList = () => {;
 
 
   return (
-    <tbody>
-      {arrivalList.map(obj => {
+    <>{ arrivalList.length===0 ? <NoFlights /> :
+      arrivalList.map(obj => {
         return <Flight key={obj.id} {...obj} />;
-      })}
-    </tbody>
+      })
+    }</>
   );
 };
 
@@ -62,15 +63,6 @@ export default ArrivalList;
 */
 
 
-/*
-.filter(item=>{
-
-    if ( item.codeShareData[0].codeShare.toLowerCase().includes(parsedValue.toLowerCase())){
-        return true;
-    }
-    return false
-})
-*/
 
 
 /**
@@ -128,30 +120,3 @@ export default ArrivalList;
 
 
 
-
-
-// let [arrivals, setArrivals] = React.useState([]);
-
-/* React.useEffect(() => {
-
-   getFlightData().then(data => {
-     const { arrival } = data.body;
-     const arrivalList = arrival.map(item => {
-
-       return {
-         id: item.ID,
-         terminal: item.term,
-         time: item.actual,
-         destination: item['airportFromID.name_en'],
-         status: statusObject[item.status],
-         airline: item.airline.en.name,
-         flightCode: item.codeShareData[0].codeShare,
-         logo: item.logo,
-       };
-     });
-
-     setArrivals(arrivalList);
-   });
- }, []);
-
-*/
