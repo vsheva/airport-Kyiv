@@ -6,7 +6,6 @@ img {
   border-style: none;
 }
 
-
 .header-wrapper {
   position: fixed;
   width: 100vw;
@@ -18,12 +17,11 @@ img {
   align-items: center;
   box-shadow: 0 5px 10px rgba(37, 40, 41, 0.3);
 
-
   &__logo-container {
     display: flex;
     height: 100%;
     align-items: center;
-    color: #FFFFFF;
+    color: #ffffff;
     /*margin: 10px;*/
     margin-left: 110px;
     text-decoration: none;
@@ -34,9 +32,7 @@ img {
     height: 60px;
     margin-right: 50px;
   }
-
 }
-
 
 .header-navigation {
   width: 70%;
@@ -47,7 +43,7 @@ img {
 
   &__item {
     text-decoration: none;
-    color: #FFFFFF;
+    color: #ffffff;
     display: flex;
     align-items: center;
     min-height: 100%;
@@ -57,14 +53,4 @@ img {
   &:hover {
     text-decoration: underline;
   }
-
 }
-
-
-
-
-
-
-
-
-

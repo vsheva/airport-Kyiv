@@ -1,7 +1,6 @@
 # airport_project
 
-The current version of application is located [here](https://profound-otter-73a6e3.netlify.app)
-
+The current version of application is located [here](https://airport-kiev.netlify.app)
 
 ### The tech stack is:
 
@@ -19,8 +18,6 @@ The current version of application is located [here](https://profound-otter-73a6
 - [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 - [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
 
-
-
 ### Available Scripts
 
 To build project in production mode use command: `npm run build`
@@ -28,4 +25,5 @@ To build project in production mode use command: `npm run build`
 To build project in development mode use command: `npm start`
 
 ### Author
+
 - Valerii Shevchenko

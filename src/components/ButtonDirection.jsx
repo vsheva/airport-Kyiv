@@ -65,13 +65,13 @@ const ButtonDirection = () => {
 
     return (
         <div className="items">
-            <Link to='/departures'>
+            <Link to={`/departures${queryString}`}>
                 <button className={isActiveDeparture}>
                     <i className="fas fa-plane-departure "></i> <a>departures</a>
                 </button>
             </Link>
 
-            <Link to='/arrivals'>
+            <Link to={`/arrivals${queryString}`}>
                 <button className={isActiveArrival}>
                     <i className="fas fa-plane-arrival"></i>
                     <a> arrivals</a>
@@ -83,24 +83,3 @@ const ButtonDirection = () => {
 };
 
 export default ButtonDirection;*/
-
-/**
-import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-const ButtonDirection = () => {
-    return (
-        <div className="items">
-            <button className="items__direction ">
-                <i className="fas fa-plane-departure items__direction_active"></i> <a>departures</a>
-            </button>
-
-            <button className="items__direction  items__direction_active">
-                <i className="fas fa-plane-arrival"></i>
-                <a> arrivals</a>
-            </button>
-        </div>
-    );
-};
-
-export default ButtonDirection;
-*/

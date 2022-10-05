@@ -6,14 +6,7 @@ import { useHistory } from 'react-router-dom';
 const Search = () => {
   const { search } = window.location;
   const { filter, date } = qs.parse(search.substring(1));
-
   const [searchValue, setSearchValue] = useState(filter || '');
-
-  /*const queryString = qs.stringify({
-        date,
-        filter: searchValue || "",
-    })*/
-
   const navigate = useHistory();
 
   const searchHandler = () => {
@@ -31,10 +24,9 @@ const Search = () => {
         <input
           placeholder="Airline, destination or flight #"
           type="text"
-          onChange={(e) => setSearchValue(e.target.value)}
-          name="flight-number"
-          className="search-block__input"
           value={searchValue}
+          onChange={e => setSearchValue(e.target.value)}
+          className="search-block__input"
         />
         {searchValue && (
           <svg

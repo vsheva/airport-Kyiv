@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import FlightTable from './FlightTable.jsx';
 import DepartureList from './DepartureList.jsx';
 import ArrivalList from './ArrivalList.jsx';
