@@ -3,7 +3,7 @@ import './chooseDate.scss';
 import moment from 'moment';
 import qs from 'qs';
 
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch} from 'react-redux';
 import { getFlightData } from '../store/flightSlice';
 import { useHistory } from 'react-router-dom';
 
