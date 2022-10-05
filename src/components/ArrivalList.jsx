@@ -23,7 +23,9 @@ const ArrivalList = () => {;
 
     const arrivalsData = useSelector(state => state.flights.arrivals);
 
-    const filteredList = filter ? arrivalsData.filter(item => item.codeShareData[0].codeShare.toLowerCase().includes(filter.toLowerCase())) : arrivalsData;
+    const filteredList = filter ? arrivalsData.filter(item => item.codeShareData[0].codeShare.toLowerCase().includes(filter.toLowerCase()) || item['airportFromID.name_en'].toLowerCase().includes(filter.toLowerCase()) || item.airline.en.name.toLowerCase().includes(filter.toLowerCase())
+
+    ) : arrivalsData;
 
   const arrivalList = filteredList.map(item => {
     return {

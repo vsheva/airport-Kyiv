@@ -29,7 +29,7 @@ const Search = () => {
       <div className="flight-input__input-block search-block">
         <i className="fas fa-search search__loop"></i>
         <input
-          placeholder=" flight #"
+          placeholder="Airline, destination or flight #"
           type="text"
           onChange={(e) => setSearchValue(e.target.value)}
           name="flight-number"

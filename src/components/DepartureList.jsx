@@ -25,9 +25,11 @@ const DepartureList = () => {
 
   const departuresData = useSelector(state => state.flights.departures);
 
+  //        item.codeShareData[0].codeShare.toLowerCase().includes(filter.toLowerCase()) || item['airportToID.name_en'].toLowerCase().includes(filter.toLowerCase()) || item.airline.en.name.toLowerCase().includes(filter.toLowerCase())
+
   const filteredList = filter
     ? departuresData.filter(item =>
-        item.codeShareData[0].codeShare.toLowerCase().includes(filter.toLowerCase()),
+        item.codeShareData[0].codeShare.toLowerCase().includes(filter.toLowerCase()) || item['airportToID.name_en'].toLowerCase().includes(filter.toLowerCase()) || item.airline.en.name.toLowerCase().includes(filter.toLowerCase())
       )
     : departuresData;
 
