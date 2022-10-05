@@ -20,7 +20,7 @@ The current version of application is located [here](https://airport-kiev.netlif
 
 ### Available Scripts
 
-To build project in production mode use command: `npm run build`
+To build project use command: `npm run build`
 
 To run project use command: `npm start`
 
