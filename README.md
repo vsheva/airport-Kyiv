@@ -1,4 +1,4 @@
-# airport_project
+# airport project
 
 The current version of application is located [here](https://airport-kiev.netlify.app)
 
