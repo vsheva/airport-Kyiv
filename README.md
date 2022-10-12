@@ -25,5 +25,4 @@ To build project use command: `npm run build`
 To run project use command: `npm start`
 
 ### Author
-
 - Valerii Shevchenko
