@@ -1,8 +1,6 @@
-# airport project
+# [Airport project](https://airport-kiev.netlify.app)
 
-The current version of application is located [here](https://airport-kiev.netlify.app)
-
-### The tech stack is:
+#### The tech stack is:
 
 - [HTML5](https://en.wikipedia.org/wiki/HTML5)
 - [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
@@ -18,7 +16,7 @@ The current version of application is located [here](https://airport-kiev.netlif
 - [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 - [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
 
-### Available Scripts
+#### Available Scripts
 
 To build project use command: `npm run build`
 
