@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-export const getFlightData = date => {
-  return async dispatch => {
+export const getFlightData = (date) => {
+  return async (dispatch) => {
     const fetchData = async () => {
       const response = await fetch(`https://api.iev.aero/api/flights/${date}`);
       const data = await response.json();

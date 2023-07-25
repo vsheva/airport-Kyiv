@@ -9,9 +9,9 @@ const Flights = () => {
     <table className="table">
       <FlightTable />
       <Switch>
-        <Route exact path="/">
-          <Redirect to="/departures" />
-        </Route>
+        {/*<Route exact path="/">*/}
+        {/*  <Redirect to="/departures" />*/}
+        {/*</Route>*/}
 
         <Route path="/departures">
           <DepartureList />

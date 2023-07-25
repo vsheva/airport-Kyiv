@@ -46,6 +46,8 @@ const ArrivalList = () => {
     };
   });
 
+  console.log('arrivalList', arrivalList);
+
   return (
     <>
       <tbody>

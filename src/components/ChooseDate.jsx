@@ -19,7 +19,7 @@ const ChooseDate = () => {
   const today = moment();
   const tomorrow = moment().add(1, 'd');
 
-  const dateHandler = data => {
+  const dateHandler = (data) => {
     const formatedDay = moment(data).format('DD-MM-YYYY'); //11-01-2-22
     setCalendarDay(formatedDay);
 
@@ -47,7 +47,7 @@ const ChooseDate = () => {
           }
         >
           <span className="dates__day-title">{yesterday.format('ddd DD/MM')}</span>
-          <p>YESTERDAY</p>
+          <p>Yesterday</p>
         </div>
 
         <div
@@ -55,7 +55,7 @@ const ChooseDate = () => {
           className={calendarDay == today.format('DD-MM-YYYY') ? 'dates__day active' : 'dates__day'}
         >
           <span className="dates__day-title">{today.format('ddd DD/MM')}</span>
-          <p>TODAY</p>
+          <p>Today</p>
         </div>
 
         <div
@@ -65,7 +65,7 @@ const ChooseDate = () => {
           }
         >
           <span className="dates__day-title">{tomorrow.format('ddd DD/MM')}</span>
-          <p>TOMORROW</p>
+          <p>Tomorrow</p>
         </div>
       </div>
     </div>
